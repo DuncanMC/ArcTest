@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@class ArcView;
 
+@interface ViewController : UIViewController
+{
+  __weak IBOutlet ArcView *theArcView;
+  __weak IBOutlet UISwitch *theClockwiseSwitch;
+}
 
 @end
 

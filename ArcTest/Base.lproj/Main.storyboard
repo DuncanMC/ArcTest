@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +15,65 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bTc-ry-AbJ">
+                                <rect key="frame" x="170" y="278" width="260" height="71"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Draw Arc clockwise" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2w-pk-XWD">
+                                        <rect key="frame" x="89" y="25" width="151" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6EP-HN-3cA">
+                                        <rect key="frame" x="20" y="20" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="handleClockwiseSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="aOX-Lo-8iF"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="d2w-pk-XWD" secondAttribute="trailing" constant="20" id="3z7-sz-zr5"/>
+                                    <constraint firstItem="d2w-pk-XWD" firstAttribute="leading" secondItem="6EP-HN-3cA" secondAttribute="trailing" constant="20" id="9BN-zL-foF"/>
+                                    <constraint firstAttribute="centerY" secondItem="6EP-HN-3cA" secondAttribute="centerY" id="Bpi-Jh-dg2"/>
+                                    <constraint firstAttribute="centerY" secondItem="d2w-pk-XWD" secondAttribute="centerY" id="CIt-wO-b4K"/>
+                                    <constraint firstItem="6EP-HN-3cA" firstAttribute="leading" secondItem="bTc-ry-AbJ" secondAttribute="leading" constant="20" id="H4s-1G-8cu"/>
+                                    <constraint firstAttribute="width" constant="159" id="JPU-4i-OyV"/>
+                                    <constraint firstAttribute="height" constant="71" id="uuP-ZN-8CJ"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="JPU-4i-OyV"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Scampers 5814" translatesAutoresizingMaskIntoConstraints="NO" id="iz5-XB-dMf" customClass="ArcView">
+                                <rect key="frame" x="200" y="58" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="5Tk-TB-J2C"/>
+                                    <constraint firstAttribute="width" constant="200" id="uhm-81-EHV"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iz5-XB-dMf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="38" id="8En-t5-blI"/>
+                            <constraint firstAttribute="centerX" secondItem="bTc-ry-AbJ" secondAttribute="centerX" id="8ue-aD-AMX"/>
+                            <constraint firstAttribute="centerX" secondItem="iz5-XB-dMf" secondAttribute="centerX" id="BlM-p9-LA8"/>
+                            <constraint firstItem="bTc-ry-AbJ" firstAttribute="top" secondItem="iz5-XB-dMf" secondAttribute="bottom" constant="20" id="ocY-H8-5US"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="theArcView" destination="iz5-XB-dMf" id="Lqm-qp-64j"/>
+                        <outlet property="theClockwiseSwitch" destination="6EP-HN-3cA" id="Hdt-mK-19l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="Scampers 5814" width="16" height="16"/>
+    </resources>
 </document>

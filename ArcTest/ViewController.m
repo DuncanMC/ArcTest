@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ArcView.h"
 
 @interface ViewController ()
 
@@ -14,8 +15,11 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
   [super viewDidLoad];
+  theClockwiseSwitch.on = YES;
+  [self handleClockwiseSwitch: theClockwiseSwitch];
   // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -23,5 +27,10 @@
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
 }
+- (IBAction)handleClockwiseSwitch:(id)sender
+{
+  theArcView.drawArcClockwise = theClockwiseSwitch.isOn;
+}
+
 
 @end
