@@ -15,45 +15,31 @@
   if (drawArcClockwise == _drawArcClockwise)
     return;
   _drawArcClockwise = drawArcClockwise;
-  [self setShapeFromBoundsWithAnimation: YES];
+  [self setShapeFromBounds];
 }
 
-
-- (void) setShapeFromBoundsWithAnimation: (BOOL) animate;
++ (Class)layerClass
 {
-  maskLayer.frame = self.layer.bounds;
-  CGMutablePathRef path = CGPathCreateMutable();
-  CGRect bounds = self.layer.bounds;
-  CGFloat height, width;
-  height = bounds.size.height;
-  width = bounds.size.width;
-  CGFloat radius = sqrtf(width * width + height * height)/2;
-  maskLayer.lineWidth = radius;
+  return [CAShapeLayer class];
+}
 
-  CGFloat start =_drawArcClockwise ? M_PI * 1.5 :-M_PI_2;
-  CGFloat end = !_drawArcClockwise ? M_PI * 1.5 :-M_PI_2;
+- (void) setShapeFromBounds;
+{
+  CAShapeLayer *myLayer = (CAShapeLayer *)self.layer;
+  CGMutablePathRef path = CGPathCreateMutable();
+  CGRect bounds = myLayer.bounds;
+  bounds = CGRectInset(bounds, myLayer.lineWidth, myLayer.lineWidth);
   CGPathAddArc(path,
                nil,
                CGRectGetMidX(bounds),
                CGRectGetMidY(bounds),
-               radius/2,
-               start,
-               end,
+               MIN(bounds.size.width/2, bounds.size.height/2),
+               3*M_PI_2,
+               -M_PI_2,
                _drawArcClockwise
                );
-  maskLayer.path = path;
+  myLayer.path = path;
   CGPathRelease(path);
-  CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-  
-  animation.duration = 1;
-  
-  animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-  animation.autoreverses = YES;
-  animation.fromValue = [NSNumber numberWithFloat: 1.0];
-  
-  animation.toValue = [NSNumber numberWithFloat: 0.0];
-  [maskLayer addAnimation: animation forKey: @"Woof"];
-  
 }
 
 - (void)layoutSubviews
@@ -61,19 +47,8 @@
   [super layoutSubviews];
   if (CGRectEqualToRect(self.bounds, oldBounds))
     return;
-  [self setShapeFromBoundsWithAnimation: NO];
+  [self setShapeFromBounds];
   oldBounds = self.bounds;
-}
-
-- (void) doInitSetup
-{
-  self.layer.borderWidth = 1;
-  self.layer.borderColor = [UIColor blueColor].CGColor;
-  maskLayer = [CAShapeLayer layer];
-  maskLayer.frame = self.layer.bounds;
-  maskLayer.fillColor = [UIColor clearColor].CGColor;
-  maskLayer.strokeColor = [UIColor blackColor].CGColor;
-  self.layer.mask = maskLayer;
 }
 
 - (instancetype) initWithCoder:(NSCoder *)aDecoder
@@ -82,10 +57,15 @@
   if (!self)
     return nil;
   
-  maskLayer.fillColor = [UIColor clearColor].CGColor;
+  CAShapeLayer *myLayer = (CAShapeLayer *)self.layer;
+  myLayer.borderWidth = 1.0;
+  myLayer.strokeColor = [UIColor blueColor].CGColor;
+  myLayer.fillColor = [UIColor clearColor].CGColor;
+  myLayer.lineWidth = 5.0;
   
-  [self doInitSetup];
-  [self setShapeFromBoundsWithAnimation: NO];
+  _drawArcClockwise = YES;
+
+  //[self setShapeFromBounds];
   
   return self;
 }
