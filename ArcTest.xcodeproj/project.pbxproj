@@ -15,7 +15,6 @@
 		AE4FECF31A6E93BF00F728AC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE4FECF11A6E93BF00F728AC /* LaunchScreen.xib */; };
 		AE4FECFF1A6E93BF00F728AC /* ArcTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4FECFE1A6E93BF00F728AC /* ArcTestTests.m */; };
 		AE4FED0A1A6E93DD00F728AC /* ArcView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4FED091A6E93DD00F728AC /* ArcView.m */; };
-		AE4FED0C1A6ECC5800F728AC /* Scampers 5814.png in Resources */ = {isa = PBXBuildFile; fileRef = AE4FED0B1A6ECC5800F728AC /* Scampers 5814.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +43,6 @@
 		AE4FECFE1A6E93BF00F728AC /* ArcTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArcTestTests.m; sourceTree = "<group>"; };
 		AE4FED081A6E93DD00F728AC /* ArcView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArcView.h; path = ../ArcView.h; sourceTree = "<group>"; };
 		AE4FED091A6E93DD00F728AC /* ArcView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArcView.m; path = ../ArcView.m; sourceTree = "<group>"; };
-		AE4FED0B1A6ECC5800F728AC /* Scampers 5814.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Scampers 5814.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +101,6 @@
 		AE4FECE21A6E93BE00F728AC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AE4FED0B1A6ECC5800F728AC /* Scampers 5814.png */,
 				AE4FECE31A6E93BE00F728AC /* Info.plist */,
 				AE4FECE41A6E93BE00F728AC /* main.m */,
 			);
@@ -207,7 +204,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE4FED0C1A6ECC5800F728AC /* Scampers 5814.png in Resources */,
 				AE4FECEE1A6E93BE00F728AC /* Main.storyboard in Resources */,
 				AE4FECF31A6E93BF00F728AC /* LaunchScreen.xib in Resources */,
 				AE4FECF01A6E93BF00F728AC /* Images.xcassets in Resources */,
