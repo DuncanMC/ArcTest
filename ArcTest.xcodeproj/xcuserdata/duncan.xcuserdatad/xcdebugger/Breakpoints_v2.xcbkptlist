@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ArcView.m"
-            timestampString = "443480954.432941"
+            timestampString = "443558702.244329"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "-layoutSubviews"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ArcView.m"
-            timestampString = "443480986.706735"
+            timestampString = "443558702.244329"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "-setShapeFromBounds"
             landmarkType = "5">
          </BreakpointContent>

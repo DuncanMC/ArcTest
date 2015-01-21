@@ -25,19 +25,32 @@
   return [CAShapeLayer class];
 }
 
+
 - (void) setShapeFromBounds;
 {
+    CGFloat startAngle, endAngle;
+
   CAShapeLayer *myLayer = (CAShapeLayer *)self.layer;
   CGMutablePathRef path = CGPathCreateMutable();
   CGRect bounds = myLayer.bounds;
   bounds = CGRectInset(bounds, myLayer.lineWidth, myLayer.lineWidth);
+  
+#define fix64BitBug 0
+  
+#if fix64BitBug
+  startAngle = _drawArcClockwise ? 3*M_PI_2 : -M_PI_2;
+  endAngle =   _drawArcClockwise ? -M_PI_2  : 3*M_PI_2;
+#else
+  startAngle = 3*M_PI_2;
+  endAngle =   -M_PI_2;
+#endif
   CGPathAddArc(path,
                nil,
                CGRectGetMidX(bounds),
                CGRectGetMidY(bounds),
                MIN(bounds.size.width/2, bounds.size.height/2),
-               3*M_PI_2,
-               -M_PI_2,
+               startAngle,
+               endAngle,
                _drawArcClockwise
                );
   myLayer.path = path;
